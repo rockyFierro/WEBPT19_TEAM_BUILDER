@@ -1,6 +1,32 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+const Form = styled.div`
+  margin: 50px;
+  form{
+    background: rgba(194, 17, 130,0.3);
+    display:flex;
+    flex-direction:column;
+    label{
+      margin:15px;
+      input{
+        border:2px solid #000;
+        height:1.5rem;
+        border-radius:5px;
+      }
+    }
+    button{
+      width:20ch;
+      align-self:center;
+      height:2rem;
+      margin:8px;
+      background:#c21182;
+      color:#fff;
+      border-radius:15px;
+    }
+  }
+`;
+
 const NewMember = (props) => {
   const [member, setMember] = useState({
     name: props.name,
@@ -14,7 +40,6 @@ const NewMember = (props) => {
     console.log("changes", event.target.value);
     const newStateObj = { ...member, [event.target.name]: event.target.value };
     setMember(newStateObj);
-    console.log(member);
   };
 
   const submitForm = (event) => {
@@ -23,7 +48,7 @@ const NewMember = (props) => {
   };
 
   return (
-    <div>
+    <Form>
       <form onSubmit={submitForm}>
         <label htmlFor="name">
           <input
@@ -77,7 +102,7 @@ const NewMember = (props) => {
         </label>
         <button type="submit">Add Member</button>
       </form>
-    </div>
+    </Form>
   );
 };
 

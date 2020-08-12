@@ -10,6 +10,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 function App() {
   const [teamMembers, setTeamMembers] = useState(teamList);
+  const [memberToEdit, setMemberToEdit] =useState({});
 
   const addMember = props => { //passed into New Member form and kicked back after submit with a new team member object
     const newMember = { //the shape of the new member
@@ -26,16 +27,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {
-          console.log(teamMembers)
-        }
         <NavBar/>
-        <Switch>
+        <Switch> 
           <Route path="/NewMembers">
           <NewMember addMember={addMember}/>{/*will really need to make time for a deep dive into props and passing functions.*/}
           </Route>
           <Route path="/CurrentMembers">
-          <Team team={teamMembers}/>{/*final render of team with up to date list passed in for some quality mapping*/}
+          <Team memberToEdit={setMemberToEdit} team={teamMembers}/>{/*final render of team with up to date list passed in for some quality mapping*/}
           </Route>
           <Route path="/" exact>
             <Home/>

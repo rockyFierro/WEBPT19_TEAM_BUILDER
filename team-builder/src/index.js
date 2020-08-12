@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import { createGlobalStyle } from "styled-components";
+
+// const GlobalStyle = createGlobalStyle`
+// @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@1,700&display=swap');
+// `;
 
 ReactDOM.render(
   <React.StrictMode>
