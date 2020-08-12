@@ -11,11 +11,11 @@ function App() {
   const addMember = props => {
     const newMember = {
       id:Date.now(),
-      name:props.member.name,
-      codename:props.member.codename,
-      team:props.member.team,
-      email:props.member.email,
-      role:props.member.role
+      name: props.name,
+      codename:props.codename,
+      team:props.team,
+      email:props.email,
+      role:props.role
     };
     setTeamMembers([...teamMembers, newMember]);
   }

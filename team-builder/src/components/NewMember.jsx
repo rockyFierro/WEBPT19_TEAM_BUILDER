@@ -2,29 +2,7 @@ import React,
 {useState} from "react";
 import styled from "styled-components"
 
-const Wrapper = styled.div`
-    margin:2ch auto;
-    display:flex;
-    flex-direction:column;
-    form{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      margin:2ch auto;
-      justify-content:space-around;
-      width:45ch;
-    }
-    input{
-      font-size:0.8rem;
-      border-radius:5ch;
-      padding:1ch;
-    }
-    button{
-      margin:2rem;
-      padding:2ch;
-      border-radius:2ch;
-    }
-  `
+
 const NewMember = (props) => {
 
   const [ member, setMember ] = useState({
@@ -39,18 +17,18 @@ const NewMember = (props) => {
     console.log("changes",event.target.value);
     const newStateObj = {...member, [event.target.name]:event.target.value};
     setMember(newStateObj);
+    console.log(member);
     };
 
   const submitForm = event =>{
     event.preventDefault();
     props.addMember(member);
-    setMember({name:"",codename:"",team:"Gold'93",email:"",role:""})
   };
 
   return(
-    <Wrapper>
+    <div>
     <form onSubmit={submitForm}>
-      <label htmlFor="name">New Member Name:  </label>
+      <label htmlFor="name">New Member Name:
       <input
         id="name"
         type="text"
@@ -58,7 +36,7 @@ const NewMember = (props) => {
         placeholder="name"
         onChange={handleChanges}
         value={member.name}/>
-
+</label>
       <label htmlFor="codename">New Member Codename:  </label>
       <input
         id="codename"
@@ -98,7 +76,7 @@ const NewMember = (props) => {
 
     <button type="submit" >Add Member</button>
     </form>
-    </Wrapper>
+  </div>
   )
 }
 
